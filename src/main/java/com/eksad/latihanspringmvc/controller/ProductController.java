@@ -23,12 +23,12 @@ public class ProductController {
 	@RequestMapping("")
 	public String index(Model model) {
 		
-		List<Product> list = productRepositoryDAO.findAll();
+		List<Product> list1 = productRepositoryDAO.findAll();
 		
-		model.addAttribute("ListProduct", list);
+		model.addAttribute("ListProduct", list1);
 		
 		
-		return "list";	
+		return "list1";	
 	}
 	
 	@RequestMapping("/add") //METHOD DIA GET STANDARNYA
@@ -38,6 +38,18 @@ public class ProductController {
 		model.addAttribute("product", product);
 		
 		return "add";
+		
+	}
+	
+	@RequestMapping("/edit") //METHOD DIA GET STANDARNYA
+	public String editProduct(Model model) {
+		Product product = new Product();
+		
+		model.addAttribute("product", product);
+		
+		return "add";
+		
+		
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)

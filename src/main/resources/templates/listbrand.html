@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Insert title here</title>
+</head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<body>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Product Type</th>
+    <th>Delete </th>
+    <th>Edit </th>
+  </tr>
+  	<tr th:each="brand : ${ListBrand}">
+  	<td th:text="${brand.id}"></td>
+  	<td th:text="${brand.name}"></td>
+  	<td th:text="${brand.product_type}"></td>
+  	<td><a href="#" th:href="@{/brand/delete/} +${brand.id}">Delete</a></td>
+  	<td><a href="#" th:href="@{/brand/edit/} +${brand.id}">Edit</a></td>
+  </tr>
+</table>
+
+
+</body>
+</html>
